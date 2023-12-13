@@ -23,7 +23,7 @@ const controllerSendGit = async (req:any, res:any) => {
             const getData = await axios.get(`https://api.github.com/users/${reCreate}`);
             const stringData = JSON.stringify(getData.data)
             await redisClient.set("gitUser",stringData);
-            res.send(getData);
+            res.send(getData.data);
         }else if(data === username){
             console.log("have data");   
             const redisData = await redisClient.get("gitUser");

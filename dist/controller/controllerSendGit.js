@@ -31,7 +31,7 @@ const controllerSendGit = (req, res) => __awaiter(void 0, void 0, void 0, functi
             const getData = yield axios.get(`https://api.github.com/users/${reCreate}`);
             const stringData = JSON.stringify(getData.data);
             yield redisClient.set("gitUser", stringData);
-            res.send(getData);
+            res.send(getData.data);
         }
         else if (data === username) {
             console.log("have data");
